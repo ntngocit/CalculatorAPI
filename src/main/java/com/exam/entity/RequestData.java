@@ -3,8 +3,8 @@ package com.exam.entity;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
 @Setter
+@Getter
 public class RequestData {
     Double[] data;
 }

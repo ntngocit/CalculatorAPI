@@ -12,7 +12,7 @@ public class CalculatorServiceTest {
 
     @Before
     public void setUp(){
-        calculatorService = new CalculatorService();
+        calculatorService = new CalculatorServiceImpl();
     }
     @Test
     public void testGetRootSquare() {

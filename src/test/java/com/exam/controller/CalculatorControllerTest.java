@@ -13,6 +13,9 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -53,7 +56,8 @@ public class CalculatorControllerTest {
         given(calculatorService.getRootSquare(inputData)).willReturn(Double.valueOf(8.77));
         mvc.perform(get("/api/v1/calculator/rootsquare")
                 .content(content)
-                .contentType(JSON_MEDIA_TYPE))
+                .contentType(JSON_MEDIA_TYPE)
+                .header("token","eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NjUwNjY2OTksImV4cCI6MTY2NTEwOTg5OSwidXNlcklkIjozLCJlbWFpbCI6Im50bmdvYy5pdEBnbWFpbC5jb20iLCJmaXJzdE5hbWUiOiJOZ29jIiwibGFzdE5hbWUiOiJOZ3V5ZW4ifQ.aRhYT5jQqO4wMK59nNI1-9gSuPX-P_IDY78QgZ9wenc"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(JSON_MEDIA_TYPE))
                 .andExpect(jsonPath("$.output",is(8.77)));
