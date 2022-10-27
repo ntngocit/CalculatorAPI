@@ -1,5 +1,5 @@
 # CalculatorAPI
-A Spring Boot Rest API to calculate data
+A Spring Boot Rest API to calculate the square root of an input number array
 
 To Test the API:
 - Start the application
